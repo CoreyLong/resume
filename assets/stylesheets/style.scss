@@ -189,3 +189,23 @@ header {
 .legend-right {
   text-align: right;
 }
+
+/* references module */
+
+.references-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.references-item {
+  margin-bottom: 1em;
+}
+
+.references-name {
+  font-weight: 700;
+  display: block;
+}
+
+.references-phone, .references-email {
+  display: block;
+}
