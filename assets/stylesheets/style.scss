@@ -1,3 +1,7 @@
+/* external CSS and fonts */
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css";
+
 /* global */
 
 body {
@@ -188,6 +192,22 @@ header {
 
 .legend-right {
   text-align: right;
+}
+
+/* hobbies module */
+
+.hobbies-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.hobby {
+  color: #fff;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background: #A75265;
 }
 
 /* references module */
