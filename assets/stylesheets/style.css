@@ -1,0 +1,139 @@
+/* global */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: #333; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700; }
+
+.container {
+  margin-top: 6em;
+  background: #f3f3f3;
+  border-radius: 0.5em; }
+
+/* header */
+header {
+  margin-top: -5em;
+  border-bottom: 1px solid #aaa; }
+
+.headshot-container {
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: .5em;
+  background: white;
+  display: inline-block; }
+  .headshot-container .headshot {
+    height: 10em;
+    width: 10em; }
+
+.name {
+  margin-top: 0; }
+
+.mission {
+  font-size: 1.25em;
+  padding: 1em; }
+
+/* contact module */
+.contact-table > tbody > tr td {
+  border-top: 1px solid #aaa; }
+.contact-table > tbody > tr:first-child td {
+  border-top: 0; }
+.contact-table > tbody > tr > td {
+  padding: 2px; }
+  .contact-table > tbody > tr > td:first-child {
+    text-align: center;
+    font-size: 2em;
+    width: 2em; }
+
+/* stats module */
+.stats {
+  overflow: hidden; }
+
+.stats-list {
+  padding-left: 0;
+  list-style: none; }
+  .stats-list li {
+    float: left;
+    margin-bottom: 4%;
+    width: 48%;
+    height: 7em;
+    padding: 10px;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #ddd;
+    border: 1px solid #aaa;
+    border-radius: 0.5em; }
+    .stats-list li:nth-last-child(odd) {
+      margin-right: 2%; }
+    .stats-list li:nth-last-child(even) {
+      margin-left: 2%; }
+    .stats-list li:nth-last-child(-n+1) {
+      margin-bottom: 0; }
+
+.stats-number {
+  font-family: 'Lato';
+  font-size: 3em;
+  font-weight: 700; }
+
+.stats-description {
+  display: block;
+  word-wrap: break-word; }
+
+/* skills module */
+.skills-list {
+  padding-left: 0;
+  list-style: none; }
+
+.skills-item {
+  background: #F0563D;
+  color: #fff;
+  padding: 0.125em 0.5em;
+  margin-bottom: 0.25em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700; }
+
+.skills-legend {
+  margin-top: 1.428571428571429em; }
+  .skills-legend.skills-legend:before {
+    height: 2px;
+    position: relative;
+    content: ' ';
+    display: block;
+    margin-bottom: -12px;
+    background: #aaa; }
+
+.legend {
+  width: 25%;
+  display: inline-block;
+  color: #aaa;
+  float: left; }
+  .legend.legend:before {
+    width: 2px;
+    height: 10px;
+    position: relative;
+    content: ' ';
+    display: block;
+    margin: auto;
+    margin-bottom: 5px;
+    background: #aaa; }
+
+.legend-left.legend:before {
+  margin-left: 0; }
+
+.legend-right.legend:before {
+  margin-right: 0; }
+
+.legend-left:nth-child(2) span {
+  margin-left: -25px; }
+
+.legend-right:nth-child(3) span {
+  margin-right: -20px; }
+
+.legend-right {
+  text-align: right; }
