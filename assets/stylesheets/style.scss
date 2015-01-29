@@ -1,6 +1,26 @@
-/* external CSS and fonts */
-@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
-@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css";
+@import 'bootstrap';
+@import 'font-awesome';
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Lato/Lato-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/Raleway/Raleway-Heavy.ttf');
+}
 
 /* global */
 
@@ -12,13 +32,15 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .container {
   margin-top: 6em;
   background: #f3f3f3;
   border-radius: 0.5em;
+  margin-bottom: 1.5em;
+  padding-bottom: 20px;
 }
 
 /* header */
@@ -50,6 +72,103 @@ header {
 .mission {
   font-size: 1.25em;
   padding: 1em;
+}
+
+/* timeline module */
+
+.timeline {
+  position: relative;
+  display: table;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 3px;
+    background: #aaa;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-top: 2em;
+}
+
+.timeline-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0px 0px 0px 4px white, 0px 2px 0px rgba(0, 0, 0, 0.08) inset, 0px 3px 0px 4px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-item.client .timeline-icon {
+  background-color: #75CE66;
+
+  &:before {
+    font-family: FontAwesome;
+    content: "\f0f7";
+    position: absolute;
+    top: 4px;
+    left: 12px;
+    font-size: 24px;
+  }
+}
+
+.timeline-item.education .timeline-icon {
+  background-color: #F0563D;
+
+  &:before {
+    font-family: FontAwesome;
+    content: "\f19d";
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    font-size: 24px;
+  }
+}
+
+.timeline-content {
+  position: relative;
+  margin-left: 60px;
+  background-color: white;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    top: 16px;
+    right: 100%;
+    height: 0px;
+    width: 0px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+  }
+}
+
+.timeline-title {
+  margin: 0;
+}
+
+.timeline-date small {
+  &:before {
+    font-family: FontAwesome;
+    content: '\f017';
+    margin-right: 5px;
+  }
 }
 
 /* contact module */
@@ -134,7 +253,7 @@ header {
 
 .skills-item {
   background: #F0563D;
-  color: #fff;
+  color: white;
   padding: 0.125em 0.5em;
   margin-bottom: 0.25em;
   white-space: nowrap;
@@ -202,12 +321,19 @@ header {
 }
 
 .hobby {
-  color: #fff;
+  color: white;
   display: inline-block;
   margin-right: 5px;
   margin-bottom: 5px;
   padding: 5px;
-  background: #A75265;
+  background: #F0563D;
+
+  &:before {
+    font-family: FontAwesome;
+    content: "\f004";
+    font-size: 12px;
+    margin-right: 4px;
+  }
 }
 
 /* references module */
@@ -228,4 +354,16 @@ header {
 
 .references-phone, .references-email {
   display: block;
+}
+
+.references-phone:before {
+  font-family: FontAwesome;
+  content: '\f095';
+  margin-right: 5px;
+}
+
+.references-email:before {
+  font-family: FontAwesome;
+  content: '\f0e0';
+  margin-right: 5px;
 }
