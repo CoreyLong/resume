@@ -1,5 +1,37 @@
+/* external */
+
 @import 'bootstrap';
 @import 'font-awesome';
+
+/* variables */
+$bp-xs: 768px;
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-darkest:           #434A54;
+$gray-darker:            #656D78;
+$gray-dark:              #AAB2BD;
+$gray-light:             #CCD1D9;
+$gray-lighter:           #E6E9ED;
+$gray-lightest:          #F5F7FA;
+
+$brand-alizarin:        #E74C3C;
+$brand-turquoise:       #1abc9c;
+$brand-green:       #75CE66;
+$brand-petermann:       lighten(#3498DB, 10%);
+$brand-pomegranate:     #C0392B;
+$brand-midnight:        #2C3E50;
+
+$bg-color:              $gray-lightest;
+$text-color:            $brand-midnight;
+$link-color:            $text-color !default;
+$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+/* fonts */
 
 @font-face {
   font-family: 'Lato';
@@ -27,7 +59,7 @@
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  color: #333;
+  color: $text-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -35,43 +67,59 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
 }
 
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 24px;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.05);
+}
+h3 {
+  font-size: 18px;
+}
+h4 {
+  font-size: 14px;
+}
+h5 {
+  font-size: 12px;
+}
+h6 {
+  font-size: 10px;
+}
+
+a {
+  color: $link-color;
+}
+
 .container {
-  margin-top: 6em;
-  background: #f3f3f3;
-  border-radius: 0.5em;
-  margin-bottom: 1.5em;
-  padding-bottom: 20px;
+  margin-top: 80px;
+  background: $bg-color;
+  border-radius: 0;
+}
+
+@media (min-width: $bp-xs) {
+  .container {
+    border-radius: 1em;
+    margin-bottom: 20px;
+  }
 }
 
 /* header */
 
 header {
-  margin-top: -5em;
-  border-bottom: 1px solid #aaa;
+  margin-top: -70px;
+  border-bottom: 1px solid $gray-light;
 }
 
-.headshot-container {
-  width: 11em;
-  height: 11em;
+.headshot {
+  height: 140px;
+  width: 140px;
+  border: 10px solid white;
   border-radius: 50%;
-  overflow: hidden;
-  padding: .5em;
-  background: white;
-  display: inline-block;
-
-  .headshot {
-    height: 10em;
-    width: 10em;
-  }
 }
 
 .name {
   margin-top: 0;
-}
-
-.mission {
-  font-size: 1.25em;
-  padding: 1em;
 }
 
 /* timeline module */
@@ -87,7 +135,16 @@ header {
     left: 20px;
     height: 100%;
     width: 3px;
-    background: #aaa;
+    background: $gray-light;
+  }
+
+  .alert {
+    margin: 0 0 0 60px;
+    color: $text-color;
+
+    small {
+      line-height: 20px;
+    }
   }
 }
 
@@ -104,11 +161,13 @@ header {
   height: 42px;
   border-radius: 50%;
   color: white;
-  box-shadow: 0px 0px 0px 4px white, 0px 2px 0px rgba(0, 0, 0, 0.08) inset, 0px 3px 0px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 0px 4px white,
+              0px 2px 0px rgba(0, 0, 0, 0.08) inset,
+              0px 3px 0px 4px rgba(0, 0, 0, 0.05);
 }
 
 .timeline-item.client .timeline-icon {
-  background-color: #75CE66;
+  background-color: $brand-green;
 
   &:before {
     font-family: FontAwesome;
@@ -121,7 +180,7 @@ header {
 }
 
 .timeline-item.education .timeline-icon {
-  background-color: #F0563D;
+  background-color: $brand-pomegranate;
 
   &:before {
     font-family: FontAwesome;
@@ -177,7 +236,7 @@ header {
   &>tbody {
     &>tr {
       td {
-        border-top: 1px solid #aaa;
+        border-top: 1px solid $gray-light;
       }
 
       &:first-child td {
@@ -197,53 +256,6 @@ header {
   }
 }
 
-/* stats module */
-
-.stats {
-  overflow: hidden;
-}
-
-.stats-list {
-  padding-left: 0;
-  list-style: none;
-
-  li {
-    float: left;
-    margin-bottom: 4%;
-    width: 48%;
-    height: 7em;
-    padding: 10px;
-    line-height: 1.4;
-    text-align: center;
-    background-color: #ddd;
-    border: 1px solid #aaa;
-    border-radius: 0.5em;
-
-    &:nth-last-child(odd) {
-      margin-right: 2%;
-    }
-
-    &:nth-last-child(even) {
-      margin-left: 2%;
-    }
-
-    &:nth-last-child(-n+1) {
-      margin-bottom: 0;
-    }
-  }
-}
-
-.stats-number {
-  font-family: 'Lato';
-  font-size: 3em;
-  font-weight: 700;
-}
-
-.stats-description {
-  display: block;
-  word-wrap: break-word;
-}
-
 /* skills module */
 
 .skills-list {
@@ -252,13 +264,14 @@ header {
 }
 
 .skills-item {
-  background: #F0563D;
+  background: $brand-alizarin;
   color: white;
   padding: 0.125em 0.5em;
   margin-bottom: 0.25em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
   font-weight: 700;
 }
 
@@ -271,14 +284,14 @@ header {
       content: ' ';
       display: block;
       margin-bottom: -12px;
-      background: #aaa;
+      background: $gray-dark;
     }
 }
 
 .legend {
   width: 25%;
   display: inline-block;
-  color: #aaa;
+  color: $gray-dark;
   float: left;
 
   &.legend:before{
@@ -289,7 +302,7 @@ header {
     display: block;
     margin: auto;
     margin-bottom: 5px;
-    background: #aaa;
+    background: $gray-dark;
   }
 }
 
@@ -313,6 +326,52 @@ header {
   text-align: right;
 }
 
+/* stats module */
+
+.stats {
+  overflow: hidden;
+}
+
+.stats-list {
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    float: left;
+    width: 48%;
+    padding: 10px;
+    text-align: center;
+    background-color: $brand-petermann;
+    color: white;
+    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 0.5em;
+    margin-bottom: 4%;
+
+    &:nth-child(odd) {
+      margin-right: 2%;
+    }
+
+    &:nth-child(even) {
+      margin-left: 2%;
+    }
+
+    &:nth-last-child(-n+1) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.stats-number {
+  font-family: 'Lato';
+  font-size: 3em;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.stats-description {
+  display: block;
+}
+
 /* hobbies module */
 
 .hobbies-list {
@@ -326,7 +385,8 @@ header {
   margin-right: 5px;
   margin-bottom: 5px;
   padding: 5px;
-  background: #F0563D;
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
+  background: $brand-turquoise;
 
   &:before {
     font-family: FontAwesome;
@@ -356,10 +416,16 @@ header {
   display: block;
 }
 
+.references-name:before {
+  font-family: FontAwesome;
+  content: '\f007';
+  margin-right: 10px;
+}
+
 .references-phone:before {
   font-family: FontAwesome;
   content: '\f095';
-  margin-right: 5px;
+  margin-right: 7px;
 }
 
 .references-email:before {
@@ -367,3 +433,4 @@ header {
   content: '\f0e0';
   margin-right: 5px;
 }
+
