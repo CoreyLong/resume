@@ -1,35 +1,19 @@
-/* external */
-
-@import 'bootstrap';
-@import 'font-awesome';
-
 /* variables */
-$bp-xs: 768px;
 
-
-//== Colors
-//
-//## Gray and brand colors for use across Bootstrap.
-
-$gray-darkest:           #434A54;
-$gray-darker:            #656D78;
-$gray-dark:              #AAB2BD;
-$gray-light:             #CCD1D9;
-$gray-lighter:           #E6E9ED;
-$gray-lightest:          #F5F7FA;
-
+/* colors from Flat UI Pro http://designmodo.com/flat/ */
 $brand-alizarin:        #E74C3C;
 $brand-turquoise:       #1abc9c;
-$brand-green:       #75CE66;
-$brand-petermann:       lighten(#3498DB, 10%);
+$brand-green:           #75CE66;
+$brand-petermann:       #3498DB;
 $brand-pomegranate:     #C0392B;
 $brand-midnight:        #2C3E50;
 
-$bg-color:              $gray-lightest;
 $text-color:            $brand-midnight;
-$link-color:            $text-color !default;
-$link-hover-color:      darken($link-color, 15%) !default;
-$link-hover-decoration: underline !default;
+
+/* external */
+
+@import "bootstrap";
+@import "font-awesome";
 
 /* fonts */
 
@@ -50,6 +34,13 @@ $link-hover-decoration: underline !default;
 @font-face {
   font-family: 'Raleway';
   font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Raleway/Raleway-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
   font-weight: 900;
   src: url('../fonts/Raleway/Raleway-Heavy.ttf');
 }
@@ -59,7 +50,6 @@ $link-hover-decoration: underline !default;
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  color: $text-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -67,41 +57,17 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 900;
 }
 
-h1 {
-  font-size: 36px;
-}
-h2 {
-  font-size: 24px;
+h1, h2, h3 {
   text-shadow: 0px 3px rgba(0, 0, 0, 0.05);
 }
-h3 {
-  font-size: 18px;
-}
-h4 {
-  font-size: 14px;
-}
-h5 {
-  font-size: 12px;
-}
-h6 {
-  font-size: 10px;
+
+.wrapper {
+  margin-top: 100px;
+  background: $gray-lighter;
 }
 
-a {
-  color: $link-color;
-}
-
-.container {
-  margin-top: 80px;
-  background: $bg-color;
-  border-radius: 0;
-}
-
-@media (min-width: $bp-xs) {
-  .container {
-    border-radius: 1em;
-    margin-bottom: 20px;
-  }
+.container-fluid {
+  max-width: $screen-lg-min;
 }
 
 /* header */
@@ -112,10 +78,10 @@ header {
 }
 
 .headshot {
-  height: 140px;
-  width: 140px;
+  height: 160px;
+  width: 160px;
   border: 10px solid white;
-  border-radius: 50%;
+  margin-bottom: 1em;
 }
 
 .name {
@@ -126,25 +92,26 @@ header {
 
 .timeline {
   position: relative;
-  display: table;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 20px;
-    height: 100%;
-    width: 3px;
-    background: $gray-light;
-  }
+  border-left: 3px solid $gray-light;
+  margin-left: 20px;
 
   .alert {
-    margin: 0 0 0 60px;
+    margin: 0 0 0 40px;
     color: $text-color;
+    border-radius: 0;
 
     small {
       line-height: 20px;
+      font-weight: 700;
+      float: right;
     }
+  }
+}
+
+@media (max-width: $screen-xs-min) {
+  .timeline .alert small {
+    display: inline-block;
+    float: none;
   }
 }
 
@@ -155,8 +122,7 @@ header {
 
 .timeline-icon {
   position: absolute;
-  top: 0;
-  left: 0;
+  left: -23px;
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -164,18 +130,21 @@ header {
   box-shadow: 0px 0px 0px 4px white,
               0px 2px 0px rgba(0, 0, 0, 0.08) inset,
               0px 3px 0px 4px rgba(0, 0, 0, 0.05);
+
+  &:before {
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 24px;
+  }
 }
 
 .timeline-item.client .timeline-icon {
   background-color: $brand-green;
 
   &:before {
-    font-family: FontAwesome;
     content: "\f0f7";
-    position: absolute;
     top: 4px;
     left: 12px;
-    font-size: 24px;
   }
 }
 
@@ -183,20 +152,16 @@ header {
   background-color: $brand-pomegranate;
 
   &:before {
-    font-family: FontAwesome;
     content: "\f19d";
-    position: absolute;
     top: 4px;
-    left: 6px;
-    font-size: 24px;
+    left: 7px;
   }
 }
 
 .timeline-content {
   position: relative;
-  margin-left: 60px;
+  margin-left: 40px;
   background-color: white;
-  border-radius: 0.25em;
   padding: 1em;
   box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
 
@@ -222,48 +187,38 @@ header {
   margin: 0;
 }
 
-.timeline-date small {
-  &:before {
-    font-family: FontAwesome;
-    content: '\f017';
-    margin-right: 5px;
-  }
+.timeline-date small:before {
+  font-family: FontAwesome;
+  content: '\f017';
+  margin-right: 5px;
 }
 
 /* contact module */
 
-.contact-table {
-  &>tbody {
-    &>tr {
-      td {
-        border-top: 1px solid $gray-light;
-      }
+.contact-table>tbody>tr {
+  &>td {
+    padding: 2px 5px;
+    border-top: 1px solid $gray-light;
 
-      &:first-child td {
-        border-top: 0;
-      }
-
-      &>td {
-        padding: 2px;
-
-        &:first-child {
-          text-align: center;
-          font-size: 2em;
-          width: 2em;
-        }
-      }
+    &:first-child {
+      font-size: 2em;
+      width: 1px;
     }
+  }
+
+  &:first-child td {
+    border-top: 0;
   }
 }
 
-/* skills module */
+/* skill module */
 
-.skills-list {
+.skill-list {
   padding-left: 0;
   list-style: none;
 }
 
-.skills-item {
+.skill-item {
   background: $brand-alizarin;
   color: white;
   padding: 0.125em 0.5em;
@@ -275,111 +230,81 @@ header {
   font-weight: 700;
 }
 
-.skills-legend {
-  margin-top: 1.428571428571429em;
+.skill-legend>tbody>tr {
+  .marker-left {
+    border-left: 2px solid $gray-light;
+    border-top: 0;
+    padding: 10px 0 0 0;
+  }
 
-    &.skills-legend:before{
-      height: 2px;
-      position: relative;
-      content: ' ';
-      display: block;
-      margin-bottom: -12px;
-      background: $gray-dark;
-    }
-}
+  .marker-right {
+    border-right: 2px solid $gray-light;
+    border-top: 0;
+    padding: 10px 0 0 0;
+  }
 
-.legend {
-  width: 25%;
-  display: inline-block;
-  color: $gray-dark;
-  float: left;
+  .legend-left, .legend-right {
+    border-top: 2px solid $gray-light;
+    padding: 5px 0 0 0;
+  }
 
-  &.legend:before{
-    width: 2px;
-    height: 10px;
-    position: relative;
-    content: ' ';
-    display: block;
-    margin: auto;
-    margin-bottom: 5px;
-    background: $gray-dark;
+  .legend-left {
+    text-align: left;
+  }
+
+  .legend-right {
+    text-align: right;
   }
 }
 
-.legend-left.legend:before {
-  margin-left: 0;
-}
+/* stat module */
 
-.legend-right.legend:before {
-  margin-right: 0;
-}
-
-.legend-left:nth-child(2) span {
-  margin-left: -25px;
-}
-
-.legend-right:nth-child(3) span {
-  margin-right: -20px;
-}
-
-.legend-right {
-  text-align: right;
-}
-
-/* stats module */
-
-.stats {
-  overflow: hidden;
-}
-
-.stats-list {
+.stat-list {
   padding-left: 0;
   list-style: none;
+}
 
-  li {
-    float: left;
-    width: 48%;
-    padding: 10px;
-    text-align: center;
-    background-color: $brand-petermann;
-    color: white;
-    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
-    border-radius: 0.5em;
-    margin-bottom: 4%;
+.stat-item {
+  float: left;
+  width: 48%;
+  padding: 10px;
+  text-align: center;
+  background-color: $brand-petermann;
+  color: white;
+  box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.05);
+  margin-bottom: 4%;
 
-    &:nth-child(odd) {
-      margin-right: 2%;
-    }
+  &:nth-child(odd) {
+    margin-right: 2%;
+  }
 
-    &:nth-child(even) {
-      margin-left: 2%;
-    }
+  &:nth-child(even) {
+    margin-left: 2%;
+  }
 
-    &:nth-last-child(-n+1) {
-      margin-bottom: 0;
-    }
+  &:nth-last-child(-n+1) {
+    margin-bottom: 0;
   }
 }
 
-.stats-number {
-  font-family: 'Lato';
+.stat-number {
   font-size: 3em;
   line-height: 1;
   font-weight: 700;
 }
 
-.stats-description {
+.stat-description {
   display: block;
 }
 
-/* hobbies module */
+/* hobby module */
 
-.hobbies-list {
+.hobby-list {
   padding-left: 0;
   list-style: none;
 }
 
-.hobby {
+.hobby-item {
   color: white;
   display: inline-block;
   margin-right: 5px;
@@ -396,41 +321,39 @@ header {
   }
 }
 
-/* references module */
+/* reference module */
 
-.references-list {
+.reference-list {
   padding-left: 0;
   list-style: none;
 }
 
-.references-item {
+.reference-item {
   margin-bottom: 1em;
 }
 
-.references-name {
+.reference-name, .reference-phone, .reference-email {
+  display: block;
+}
+
+.reference-name {
   font-weight: 700;
-  display: block;
 }
 
-.references-phone, .references-email {
-  display: block;
-}
-
-.references-name:before {
+.reference-name:before {
   font-family: FontAwesome;
   content: '\f007';
   margin-right: 10px;
 }
 
-.references-phone:before {
+.reference-phone:before {
   font-family: FontAwesome;
   content: '\f095';
   margin-right: 7px;
 }
 
-.references-email:before {
+.reference-email:before {
   font-family: FontAwesome;
   content: '\f0e0';
   margin-right: 5px;
 }
-
