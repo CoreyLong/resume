@@ -88,6 +88,19 @@ header {
   margin-top: 0;
 }
 
+/* main */
+
+main {
+  padding-bottom: 20px;
+}
+
+/* footer */
+
+footer {
+  margin-bottom: -70px;
+  border-top: 1px solid $gray-light;
+}
+
 /* timeline module */
 
 .timeline {
@@ -254,6 +267,10 @@ header {
 
   .legend-right {
     text-align: right;
+  }
+
+  &>td {
+    width: 25%;
   }
 }
 
