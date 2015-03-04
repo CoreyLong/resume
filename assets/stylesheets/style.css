@@ -3534,6 +3534,15 @@ header {
 .name {
   margin-top: 0; }
 
+/* main */
+main {
+  padding-bottom: 20px; }
+
+/* footer */
+footer {
+  margin-bottom: -70px;
+  border-top: 1px solid #777777; }
+
 /* timeline module */
 .timeline {
   position: relative;
@@ -3654,6 +3663,8 @@ header {
   text-align: left; }
 .skill-legend > tbody > tr .legend-right {
   text-align: right; }
+.skill-legend > tbody > tr > td {
+  width: 25%; }
 
 /* stat module */
 .stat-list {
